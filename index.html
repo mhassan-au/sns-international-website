@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- SNS International Consulting — single-page static website -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SNS International Consulting connects Australian businesses with global markets, trusted partners and international opportunities.">
+  <title>SNS International Consulting | Connecting Global Markets</title>
+  <style>
+    :root{--ink:#14221f;--muted:#65716d;--paper:#f7f6f1;--white:#fff;--accent:#b77935;--accent-dark:#87551f;--line:#dedfd8;--dark:#14221f;--max:1160px;--radius:22px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit} 
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(247,246,241,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(222,223,216,.75)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand{text-decoration:none;font-weight:800;letter-spacing:.08em;font-size:.92rem}.brand span{display:block;font-size:.63rem;font-weight:500;letter-spacing:.18em;color:var(--muted)}
+    nav{display:flex;gap:26px;align-items:center;font-size:.88rem}nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}.nav-cta{padding:10px 17px;border-radius:999px;background:var(--ink);color:var(--white)}
+    .hero{min-height:0;display:grid;align-items:center;padding:150px 0 85px;background:radial-gradient(circle at 78% 28%,rgba(183,121,53,.18),transparent 28%),radial-gradient(circle at 12% 70%,rgba(20,34,31,.07),transparent 30%)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end}.eyebrow,.section-kicker{color:var(--accent-dark);font-size:.76rem;text-transform:uppercase;letter-spacing:.2em;font-weight:750;margin-bottom:20px}
+    h1{max-width:850px;margin:0;font-size:clamp(3.1rem,7vw,6.8rem);line-height:.96;letter-spacing:-.055em;font-weight:650}.hero-copy{max-width:610px;margin:28px 0 0;color:var(--muted);font-size:1.12rem}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 21px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.9rem;border:1px solid var(--ink)}.button.primary{background:var(--ink);color:var(--white)}.button.secondary{background:transparent}
+    .hero-note{border-left:1px solid var(--accent);padding-left:25px;color:var(--muted);max-width:310px;justify-self:end}.hero-note p{margin-bottom:0}
+    section{padding:110px 0}.section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:50px;margin-bottom:55px}.section-head h2{margin:0;font-size:clamp(2.2rem,4.2vw,4.3rem);line-height:1.03;letter-spacing:-.04em;font-weight:650}.section-head p{margin:20px 0 0;color:var(--muted);max-width:720px;font-size:1.03rem}
+    .services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}.service{padding:30px 25px 20px 0;border-bottom:1px solid var(--line);margin-right:25px}.service:not(:first-child){padding-left:25px;border-left:1px solid var(--line)}.number{color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.1em}.service h3{font-size:1.1rem;margin:38px 0 10px}.service p{color:var(--muted);font-size:.92rem;margin:0}
+    .markets{background:var(--dark);color:var(--white)}.markets .section-kicker{color:#d2a56f}.markets .section-head p{color:rgba(255,255,255,.66)}.market-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18)}.market{min-height:250px;padding:30px;background:var(--dark);display:flex;flex-direction:column;justify-content:space-between}.market strong{font-size:1.4rem}.market p{color:rgba(255,255,255,.62);max-width:300px;margin:0}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{padding:30px;min-height:260px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.5)}.step h3{margin:55px 0 8px;font-size:1.25rem}.step p{margin:0;color:var(--muted);font-size:.92rem}
+    .statement{padding:145px 0;text-align:center;background:#eeeade}.statement h2{max-width:980px;margin:auto;font-size:clamp(3rem,7vw,7rem);line-height:.94;letter-spacing:-.055em;font-weight:600}.statement p{max-width:720px;margin:32px auto 0;color:var(--muted);font-size:1.08rem}.statement strong{color:var(--ink)}
+    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}.about h2{margin:0;font-size:clamp(2.4rem,4vw,4.2rem);line-height:1;letter-spacing:-.045em}.about-copy p{margin-top:0;color:var(--muted)}
+    .contact{background:var(--white)}.contact-box{display:grid;grid-template-columns:1fr .8fr;gap:70px;padding:70px;border-radius:30px;background:var(--dark);color:var(--white)}.contact-box h2{margin:0;font-size:clamp(2.5rem,5vw,5rem);line-height:.96;letter-spacing:-.05em}.contact-box p{color:rgba(255,255,255,.65);max-width:560px}.contact-details{display:flex;flex-direction:column;justify-content:end;gap:22px}.contact-label{color:#d2a56f;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;font-weight:750}.email-link{color:var(--white);font-size:1.08rem;text-decoration:none;overflow-wrap:anywhere}
+    footer{padding:30px 0;background:var(--dark);color:rgba(255,255,255,.5);font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+    .carousel-section{padding:85px 0 105px;background:var(--white)}
+    .carousel-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:28px}
+    .carousel-head h2{margin:0;font-size:clamp(2rem,3.8vw,3.7rem);line-height:1;letter-spacing:-.045em;font-weight:650}
+    .carousel-head p{max-width:480px;margin:0;color:var(--muted)}
+    .carousel{position:relative;overflow:hidden;border-radius:28px;background:#d9d8d0}
+    .slides{display:flex;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+    .slide{min-width:100%;position:relative;aspect-ratio:2.25/1;overflow:hidden;background:var(--dark)}
+    .slide img{width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+    .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,34,31,.7),rgba(20,34,31,.08) 65%,transparent)}
+    .slide-copy{position:absolute;z-index:2;left:clamp(25px,5vw,65px);bottom:clamp(25px,5vw,60px);max-width:560px;color:#fff}
+    .slide-copy span{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:#e1b980;font-weight:750}
+    .slide-copy h3{font-size:clamp(1.8rem,4vw,4rem);line-height:1;letter-spacing:-.04em;margin:10px 0 8px}
+    .slide-copy p{margin:0;color:rgba(255,255,255,.76);max-width:480px}
+    .carousel-controls{position:absolute;right:25px;bottom:25px;z-index:3;display:flex;gap:8px}
+    .carousel-button{width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(20,34,31,.6);color:#fff;cursor:pointer;font-size:1.1rem}
+    .carousel-button:hover{background:rgba(20,34,31,.9)}
+    .carousel-dots{display:flex;justify-content:center;gap:7px;margin-top:18px}
+    .carousel-dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:#c5c6be;cursor:pointer}
+    .carousel-dot.active{background:var(--accent);transform:scale(1.35)}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){.hero-grid,.about,.contact-box{grid-template-columns:1fr}.hero-note{justify-self:start;margin-top:20px}.services,.process{grid-template-columns:repeat(2,1fr)}.market-list{grid-template-columns:1fr}.section-head{grid-template-columns:1fr;gap:15px}.contact-box{padding:45px 30px;gap:35px}}
+    @media(max-width:640px){.carousel-section{padding:65px 0 75px}.carousel-head{display:block}.carousel-head p{margin-top:14px}.slide{aspect-ratio:1.15/1}.container{width:min(calc(100% - 28px),var(--max))}header{position:absolute}.nav a:not(.nav-cta){display:none}.hero{min-height:auto;padding:135px 0 80px}h1{font-size:clamp(3rem,16vw,5rem)}section{padding:80px 0}.services,.process{grid-template-columns:1fr}.service,.service:not(:first-child){margin:0;padding:27px 0;border-left:0}.statement{padding:100px 0}.statement h2{font-size:clamp(3rem,15vw,5rem)}.footer-inner{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+  </style>
+</head>
+<body>
+<header><div class="container nav">
+  <a class="brand" href="#top">SNS<span>INTERNATIONAL CONSULTING</span></a>
+  <nav aria-label="Main navigation"><a href="#showcase">Showcase</a><a href="#services">Services</a><a href="#markets">Markets</a><a href="#about">About</a><a class="nav-cta" href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="container hero-grid">
+  <div class="reveal"><div class="eyebrow">Australia · South Asia · Southeast Asia</div>
+    <h1>Connecting Australian businesses with global markets.</h1>
+    <p class="hero-copy">We connect Australian suppliers, buyers and business partners with opportunities across international markets — combining relationships, market knowledge and practical trade support.</p>
+    <div class="actions"><a class="button primary" href="#contact">Start a conversation</a><a class="button secondary" href="#services">Explore what we do</a></div>
+  </div>
+  <div class="hero-note reveal"><strong>Trade. Connections. Growth.</strong><p>International business starts with the right connection and grows through trust.</p></div>
+</div></section>
+
+<section class="carousel-section" id="showcase">
+  <div class="container">
+    <div class="carousel-head reveal">
+      <div>
+        <div class="section-kicker">01 / Global perspective</div>
+        <h2>Connections that cross borders.</h2>
+      </div>
+      <p>A visual snapshot of the markets, people and movement behind international business.</p>
+    </div>
+
+    <div class="carousel reveal" aria-label="SNS visual showcase">
+      <div class="slides" id="slides">
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85" alt="Business professionals meeting and building a relationship" loading="lazy">
+          <div class="slide-copy">
+            <span>Relationships</span>
+            <h3>Business begins with people.</h3>
+            <p>Strong international relationships create the foundation for meaningful opportunities.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=85" alt="International shipping containers and global trade" loading="lazy">
+          <div class="slide-copy">
+            <span>Trade</span>
+            <h3>Moving ideas across borders.</h3>
+            <p>Connecting businesses to markets, suppliers and buyers across regions.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=85" alt="View of Earth from space representing global markets" loading="lazy">
+          <div class="slide-copy">
+            <span>Opportunity</span>
+            <h3>Think beyond the familiar.</h3>
+            <p>New markets can reveal possibilities that are created through the right connections.</p>
+          </div>
+        </article>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-button" id="prev-slide" type="button" aria-label="Previous photo">←</button>
+        <button class="carousel-button" id="next-slide" type="button" aria-label="Next photo">→</button>
+      </div>
+    </div>
+    <div class="carousel-dots" id="carousel-dots" aria-label="Choose showcase photo"></div>
+  </div>
+</section>
+
+<section id="services"><div class="container">
+  <div class="section-head reveal"><div class="section-kicker">01 / What we do</div><div><h2>Building connections that create commercial opportunities.</h2><p>From identifying potential partners to supporting relationships across borders, we help businesses turn international possibilities into practical next steps.</p></div></div>
+  <div class="services">
+    <article class="service reveal"><span class="number">01</span><h3>International Trade</h3><p>Connecting Australian suppliers with buyers and commercial opportunities across South and Southeast Asia.</p></article>
+    <article class="service reveal"><span class="number">02</span><h3>Market Connections</h3><p>Helping businesses identify relevant markets, partners and relationships that align with their goals.</p></article>
+    <article class="service reveal"><span class="number">03</span><h3>Supplier & Buyer Support</h3><p>Facilitating introductions and supporting communication as potential business relationships develop.</p></article>
+    <article class="service reveal"><span class="number">04</span><h3>Business Development</h3><p>Practical support for businesses looking to explore new markets and develop international relationships.</p></article>
+  </div>
+</div></section>
+
+<section class="markets" id="markets"><div class="container">
+  <div class="section-head reveal"><div class="section-kicker">02 / Markets & industries</div><div><h2>Across borders. Across industries.</h2><p>Our network and experience support businesses working across a range of sectors where trusted international relationships can create new opportunities.</p></div></div>
+  <div class="market-list">
+    <article class="market reveal"><strong>Australia</strong><p>Supporting Australian businesses looking to connect with international buyers, suppliers and partners.</p></article>
+    <article class="market reveal"><strong>South Asia</strong><p>Creating connections with businesses and markets across one of the world's most dynamic trading regions.</p></article>
+    <article class="market reveal"><strong>Southeast Asia</strong><p>Exploring commercial relationships across diverse and growing regional markets.</p></article>
+  </div>
+  <p style="color:rgba(255,255,255,.58);margin:32px 0 0">Fashion & Apparel · Retail · Consumer Products · Manufacturing · Logistics · And more</p>
+</div></section>
+
+<section><div class="container">
+  <div class="section-head reveal"><div class="section-kicker">03 / Our approach</div><div><h2>From understanding to opportunity.</h2><p>Good international business is built progressively. We focus on understanding the objective first, then creating the connections needed to move forward.</p></div></div>
+  <div class="process">
+    <article class="step reveal"><span class="number">01</span><h3>Understand</h3><p>We understand your business, objectives, products and target markets.</p></article>
+    <article class="step reveal"><span class="number">02</span><h3>Connect</h3><p>We identify relevant buyers, suppliers and potential business partners.</p></article>
+    <article class="step reveal"><span class="number">03</span><h3>Support</h3><p>We help facilitate communication as relationships begin to take shape.</p></article>
+    <article class="step reveal"><span class="number">04</span><h3>Grow</h3><p>We aim to build sustainable relationships that create value over time.</p></article>
+  </div>
+</div></section>
+
+<section class="statement"><div class="container reveal">
+  <div class="eyebrow">Our philosophy</div><h2>Opportunities are created, not given.</h2>
+  <p>International trade is built on more than transactions. It is built on <strong>relationships, trust, knowledge</strong> and the willingness to look beyond borders.</p>
+</div></section>
+
+<section id="about"><div class="container about">
+  <div class="reveal"><div class="section-kicker">04 / About SNS</div><h2>Relationships first. Opportunities follow.</h2></div>
+  <div class="about-copy reveal"><p>SNS International Consulting Pty Ltd. helps Australian businesses explore international opportunities by connecting them with trusted buyers, suppliers and business partners across South and Southeast Asian markets.</p><p>We believe international business is about more than moving products from one place to another. It is about understanding people and markets, building trust and creating relationships that can grow into lasting commercial opportunities.</p><p>Our approach is practical, relationship-driven and focused on creating meaningful connections between businesses.</p></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="container"><div class="contact-box reveal">
+  <div><div class="section-kicker">05 / Let's connect</div><h2>Let's create your next opportunity.</h2><p>Looking to enter a new market, find international partners or explore a commercial opportunity? We'd like to hear from you.</p></div>
+  <div class="contact-details"><div><div class="contact-label">Email</div><a class="email-link" id="email-link" href="#" aria-label="Email SNS International Consulting">hello [at] snsaustralia [dot] com</a></div><div><div class="contact-label">Based in</div><div>Australia</div></div><div><div class="contact-label">Company</div><div>SNS International Consulting Pty Ltd.</div></div></div>
+</div></div></section>
+</main>
+
+<footer><div class="container footer-inner"><div>© <span id="year"></span> SNS International Consulting Pty Ltd.</div><div>Australia · International Trade & Business Connections</div></div></footer>
+
+<script>
+  // Protect the visible email from simple HTML harvesters.
+  const email = ["hello", "snsaustralia", "com"].join("@").replace("@snsaustralia@com", "@snsaustralia.com");
+  const emailLink = document.getElementById("email-link");
+  emailLink.href = "mailto:" + email;
+  emailLink.textContent = email;
+
+
+  // Control the lightweight photo carousel.
+  const slides = document.getElementById("slides");
+  const dots = document.getElementById("carousel-dots");
+  const slideCount = slides.children.length;
+  let currentSlide = 0;
+  let carouselTimer;
+
+  function showSlide(index) {
+    currentSlide = (index + slideCount) % slideCount;
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    [...dots.children].forEach((dot, i) => dot.classList.toggle("active", i === currentSlide));
+  }
+
+  for (let i = 0; i < slideCount; i++) {
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show photo ${i + 1}`);
+    dot.addEventListener("click", () => {
+      showSlide(i);
+      restartCarousel();
+    });
+    dots.appendChild(dot);
+  }
+
+  function restartCarousel() {
+    clearInterval(carouselTimer);
+    carouselTimer = setInterval(() => showSlide(currentSlide + 1), 5500);
+  }
+
+  document.getElementById("prev-slide").addEventListener("click", () => {
+    showSlide(currentSlide - 1);
+    restartCarousel();
+  });
+
+  document.getElementById("next-slide").addEventListener("click", () => {
+    showSlide(currentSlide + 1);
+    restartCarousel();
+  });
+
+  showSlide(0);
+  restartCarousel();
+
+  // Add lightweight scroll-reveal animation without a framework.
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
