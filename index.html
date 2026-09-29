@@ -11,8 +11,8 @@
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit} 
     .container{width:min(calc(100% - 40px),var(--max));margin:auto}
     header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(247,246,241,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(222,223,216,.75)}
-    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand{text-decoration:none;font-weight:800;letter-spacing:.08em;font-size:.92rem}.brand span{display:block;font-size:.63rem;font-weight:500;letter-spacing:.18em;color:var(--muted)}
-    nav{display:flex;gap:26px;align-items:center;font-size:.88rem}nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}.nav-cta{padding:10px 17px;border-radius:999px;background:var(--ink);color:var(--white)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand{text-decoration:none;font-weight:850;letter-spacing:.08em;font-size:1.45rem;line-height:1}.brand span{display:block;font-size:.62rem;font-weight:500;letter-spacing:.18em;color:var(--muted);margin-top:6px}
+    nav{display:flex;gap:26px;align-items:center;font-size:.88rem}.menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}.menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{display:block;width:20px;height:2px;background:currentColor;border-radius:2px;content:"";position:relative}.menu-toggle span::before{position:absolute;top:-7px}.menu-toggle span::after{position:absolute;top:7px}nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}.nav-cta{padding:10px 17px;border-radius:999px;background:var(--ink);color:var(--white)}
     .hero{min-height:0;display:grid;align-items:center;padding:150px 0 85px;background:radial-gradient(circle at 78% 28%,rgba(183,121,53,.18),transparent 28%),radial-gradient(circle at 12% 70%,rgba(20,34,31,.07),transparent 30%)}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end}.eyebrow,.section-kicker{color:var(--accent-dark);font-size:.76rem;text-transform:uppercase;letter-spacing:.2em;font-weight:750;margin-bottom:20px}
     h1{max-width:850px;margin:0;font-size:clamp(3.1rem,7vw,6.8rem);line-height:.96;letter-spacing:-.055em;font-weight:650}.hero-copy{max-width:610px;margin:28px 0 0;color:var(--muted);font-size:1.12rem}
@@ -49,14 +49,15 @@
 
     .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
     @media(max-width:900px){.hero-grid,.about,.contact-box{grid-template-columns:1fr}.hero-note{justify-self:start;margin-top:20px}.services,.process{grid-template-columns:repeat(2,1fr)}.market-list{grid-template-columns:1fr}.section-head{grid-template-columns:1fr;gap:15px}.contact-box{padding:45px 30px;gap:35px}}
-    @media(max-width:640px){.carousel-section{padding:65px 0 75px}.carousel-head{display:block}.carousel-head p{margin-top:14px}.slide{aspect-ratio:1.15/1}.container{width:min(calc(100% - 28px),var(--max))}header{position:absolute}.nav a:not(.nav-cta){display:none}.hero{min-height:auto;padding:135px 0 80px}h1{font-size:clamp(3rem,16vw,5rem)}section{padding:80px 0}.services,.process{grid-template-columns:1fr}.service,.service:not(:first-child){margin:0;padding:27px 0;border-left:0}.statement{padding:100px 0}.statement h2{font-size:clamp(3rem,15vw,5rem)}.footer-inner{flex-direction:column}}
+    @media(max-width:640px){.nav{min-height:70px}.brand{font-size:1.65rem}.brand span{font-size:.54rem;letter-spacing:.14em}.menu-toggle{display:flex}nav{position:absolute;top:78px;left:14px;right:14px;display:none;flex-direction:column;align-items:stretch;gap:0;padding:10px;background:rgba(247,246,241,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 45px rgba(20,34,31,.12)}nav.open{display:flex}nav a{padding:12px 14px}nav a.nav-cta{text-align:center;margin-top:5px}.carousel-section{padding:65px 0 75px}.carousel-head{display:block}.carousel-head p{margin-top:14px}.slide{aspect-ratio:1.15/1}.container{width:min(calc(100% - 28px),var(--max))}header{position:absolute}.hero{min-height:auto;padding:135px 0 80px}h1{font-size:clamp(3rem,16vw,5rem)}section{padding:80px 0}.services,.process{grid-template-columns:1fr}.service,.service:not(:first-child){margin:0;padding:27px 0;border-left:0}.statement{padding:100px 0}.statement h2{font-size:clamp(3rem,15vw,5rem)}.footer-inner{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
   </style>
 </head>
 <body>
 <header><div class="container nav">
   <a class="brand" href="#top">SNS<span>INTERNATIONAL CONSULTING</span></a>
-  <nav aria-label="Main navigation"><a href="#showcase">Showcase</a><a href="#services">Services</a><a href="#markets">Markets</a><a href="#about">About</a><a class="nav-cta" href="#contact">Contact</a></nav>
+  <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+  <nav aria-label="Main navigation" id="main-nav"><a href="#showcase">Showcase</a><a href="#services">Services</a><a href="#markets">Markets</a><a href="#about">About</a><a class="nav-cta" href="#contact">Contact</a></nav>
 </div></header>
 
 <main id="top">
@@ -226,6 +227,11 @@
 
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
   document.getElementById("year").textContent = new Date().getFullYear();
+<script>
+const menuToggle=document.getElementById("menu-toggle");
+const mainNav=document.getElementById("main-nav");
+if(menuToggle&&mainNav){menuToggle.addEventListener("click",()=>{const open=mainNav.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(open));menuToggle.setAttribute("aria-label",open?"Close navigation":"Open navigation")});mainNav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{mainNav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label","Open navigation")}));}
+</script>
 </script>
 </body>
 </html>
